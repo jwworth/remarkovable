@@ -24,7 +24,7 @@ class RemarkovableTest < Minitest::Test
   end
 
   def test_add_pair_three_words_and_spaces
-    content = 'we are    walking.'
+    content = 'we are  walking.'
     mc = Remarkovable.new(content)
     expected_output = {
       'we are' => ['walking'],

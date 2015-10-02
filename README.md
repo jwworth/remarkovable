@@ -2,7 +2,6 @@
 
 Markov chains for all.
 
-
 ### Setup
 
 ### Features
