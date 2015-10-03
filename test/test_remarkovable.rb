@@ -16,15 +16,15 @@ class RemarkovableTest < Minitest::Test
     content = 'we (are) walking.'
     mc = Remarkovable.new(content)
     expected_output = {
-      'we are' => ['walking'],
-      'are walking' => ['.']
+      'we (are)' => ['walking'],
+      '(are) walking' => ['.']
     }
 
     assert_equal expected_output, mc.markov_model
   end
 
   def test_add_pair_three_words_and_spaces
-    content = 'we are    walking.'
+    content = 'we are  walking.'
     mc = Remarkovable.new(content)
     expected_output = {
       'we are' => ['walking'],
@@ -38,8 +38,8 @@ class RemarkovableTest < Minitest::Test
     content = 'we are "walking".'
     mc = Remarkovable.new(content)
     expected_output = {
-      'we are' => ['walking'],
-      'are walking' => ['.']
+      'we are' => ['"walking"'],
+      'are "walking"' => ['.']
     }
 
     assert_equal expected_output, mc.markov_model

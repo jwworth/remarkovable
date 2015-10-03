@@ -3,8 +3,7 @@ class Remarkovable
 
   def initialize(string)
     @markov_model = Hash.new { |hash, key| hash[key] = [] }
-    prepare!(string)
-    word_list = string.split(/([.!?])| /).map(&:strip)
+    word_list = string.split(/([.!?])|\s+/)
 
     word_list.each_with_index do |word, index|
       pair = [word, word_list[index + 1]].join(' ')
@@ -13,17 +12,7 @@ class Remarkovable
     end
   end
 
-  def build_paragraph(sentences=5)
-    paragraph = []
-
-    sentences.times do
-      paragraph << build_sentence
-    end
-
-    paragraph.join(' ') + "\n\n"
-  end
-
-  def build_sentence
+  def speak
     pair = @markov_model.keys.sample
     output = [] << pair.capitalize.split(' ')
 
@@ -38,7 +27,7 @@ class Remarkovable
       pair = [output[-2], output[-1]].join(' ')
     end
 
-    output.join(' ').squeeze(' ').gsub(/\s+([,.!?])/, '\1')
+    output.join(' ').gsub(/\s+([,.!?])/, '\1')
   end
 
   private
@@ -46,14 +35,5 @@ class Remarkovable
   def add_triad(pair, match)
     @markov_model[pair] = {} unless @markov_model[pair]
     @markov_model[pair] += [match]
-  end
-
-  def prepare!(string)
-    # Strip excessives spaces
-    string.gsub!(/\s+/, ' ')
-    # Strip double quotes, they are hard to match
-    string.gsub!(/"/, '')
-    # Strip parens, they are hard to match
-    string.gsub!(/\(|\)/, '')
   end
 end
