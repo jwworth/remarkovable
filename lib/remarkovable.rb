@@ -2,16 +2,19 @@ class Remarkovable
   attr_accessor :markov_model
 
   def initialize(string, prefix_length = 2)
+    return if string.nil?
     @markov_model = Hash.new { |hash, key| hash[key] = [] }
 
     words = string.split(/([.!?])|\s+/)
 
     words.each_with_index do |word, i|
       pair = [word]
+
       (prefix_length - 1).times do |n|
         next_word = i + n + 1
         pair << words[next_word]
       end
+
       pair = pair.join(' ')
       match = words[i + prefix_length]
       add_triad(pair, match) if i < words.size - prefix_length
@@ -19,6 +22,7 @@ class Remarkovable
   end
 
   def speak
+    return if @markov_model.nil?
     pair = @markov_model.keys.sample
     output = [] << pair.capitalize.split(' ')
 

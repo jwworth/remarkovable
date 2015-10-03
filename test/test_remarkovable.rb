@@ -12,6 +12,14 @@ class RemarkovableTest < Minitest::Test
     assert_equal expected_output, mc.markov_model
   end
 
+  def test_add_pair_nil
+    content = nil
+    mc = Remarkovable.new(content)
+    expected_output = nil
+
+    assert_equal nil, mc.speak
+  end
+
   def test_add_pair_three_words_and_punctuation
     content = 'we (are) walking.'
     mc = Remarkovable.new(content)
