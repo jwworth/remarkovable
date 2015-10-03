@@ -1,7 +1,7 @@
 class Remarkovable
   attr_accessor :markov_model
 
-  def initialize(string, prefix_length = 2)
+  def initialize(string: string, prefix_length: 2)
     return if string.nil?
     @markov_model = Hash.new { |hash, key| hash[key] = [] }
 
@@ -21,7 +21,7 @@ class Remarkovable
     end
   end
 
-  def speak(custom_key = nil)
+  def speak(custom_key: nil)
     return if @markov_model.nil?
     key = if !custom_key.nil? && @markov_model[custom_key].any?
       custom_key
