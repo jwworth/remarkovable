@@ -49,7 +49,7 @@ r.speak
 
 Sample output:
 
->"The ancient courts of the men of in to to their never rebelled, at to wise, against recourse called the if own Owing they For him beset he contrary electronic prince re-entry had to for said."
+>"For, provided it is well known that he with against THAT."
 
 ### Custom Key
 
