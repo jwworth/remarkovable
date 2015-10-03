@@ -8,33 +8,37 @@ class Remarkovable
     words = string.split(/([.!?])|\s+/)
 
     words.each_with_index do |word, i|
-      pair = [word]
+      key = [word]
 
       (prefix_length - 1).times do |n|
         next_word = i + n + 1
-        pair << words[next_word]
+        key << words[next_word]
       end
 
-      pair = pair.join(' ')
+      key = key.join(' ')
       match = words[i + prefix_length]
-      add_triad(pair, match) if i < words.size - prefix_length
+      add_triad(key, match) if i < words.size - prefix_length
     end
   end
 
-  def speak
+  def speak(custom_key = nil)
     return if @markov_model.nil?
-    pair = @markov_model.keys.sample
-    output = [] << pair.capitalize.split(' ')
+    key = if !custom_key.nil? && @markov_model[custom_key].any?
+      custom_key
+    else
+      @markov_model.keys.sample
+    end
+    output = [] << key.capitalize.split(' ')
 
     until (output & %w(. ! ?)).any?
-      match = @markov_model[pair].sample
+      match = @markov_model[key].sample
       if match.nil?
-        pair = @markov_model.keys.sample
+        key = @markov_model.keys.sample
         next
       end
       output << match
       output.flatten!
-      pair = [output[-2], output[-1]].join(' ')
+      key = [output[-2], output[-1]].join(' ')
     end
 
     output.join(' ').gsub(/\s+([,.!?])/, '\1')

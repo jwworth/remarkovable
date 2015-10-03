@@ -121,4 +121,19 @@ class RemarkovableTest < Minitest::Test
 
     assert_equal expected_output, mc.markov_model
   end
+
+  def test_custom_key
+    content = "we are walking\n\rwe are talking we are walking."
+    mc = Remarkovable.new(content)
+    expected_output = /^We are./
+
+    assert_match expected_output, mc.speak('we are')
+  end
+
+  def test_custom_key_no_match
+    content = "we are walking\n\rwe are talking we are walking."
+    mc = Remarkovable.new(content)
+
+    assert_nil mc.speak('foo bar') =~ /Foo bar/i
+  end
 end
