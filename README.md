@@ -6,6 +6,12 @@ Mix and match source material for more interesting output!
 
 ## Setup
 
+Add this to your Gemfile:
+
+```
+gem 'remarkovable', git: 'https://github.com/jwworth/remarkovable'
+```
+
 ## Features
 
 ### Basic
