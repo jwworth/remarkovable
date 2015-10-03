@@ -72,4 +72,45 @@ class RemarkovableTest < Minitest::Test
 
     assert_equal expected_output, mc.markov_model
   end
+
+  def test_custom_prefix_length_1
+    content = "we are."
+    mc = Remarkovable.new(content, 1)
+    expected_output = {
+      'we' => ['are'],
+      'are' => ['.']
+    }
+
+    assert_equal expected_output, mc.markov_model
+  end
+
+  def test_custom_prefix_length_3
+    content = "we are walking."
+    mc = Remarkovable.new(content, 3)
+    expected_output = {
+      'we are walking' => ['.']
+    }
+
+    assert_equal expected_output, mc.markov_model
+  end
+
+  def test_custom_prefix_length_4
+    content = "we are walking talking."
+    mc = Remarkovable.new(content, 4)
+    expected_output = {
+      'we are walking talking' => ['.']
+    }
+
+    assert_equal expected_output, mc.markov_model
+  end
+
+  def test_custom_prefix_length_5
+    content = "we are walking talking singing."
+    mc = Remarkovable.new(content, 5)
+    expected_output = {
+      'we are walking talking singing' => ['.']
+    }
+
+    assert_equal expected_output, mc.markov_model
+  end
 end
