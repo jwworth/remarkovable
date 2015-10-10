@@ -1,10 +1,13 @@
 # remarkovable
 
+A gem that produces Markov chain output from any text.
+
+Stuff like this:
+
 >""Wholesome exercise and pure air of the nature of the Roman Empire should be captive so as to who may be as long as you gazed, and wondered what monstrous cannibal and savage could ever have gone from bad to worse."  *The Prince* + *Moby Dick*
 
-Markov chains for all.
 
-Mix and match source material for more interesting output!
+Mix up the source material for more interesting output!
 
 ## Setup
 
