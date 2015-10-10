@@ -17,7 +17,7 @@ class Remarkovable
 
       key = key.join(' ')
       match = words[i + prefix_length]
-      add_triad(key, match) if i < words.size - prefix_length
+      add_triad(key: key, match: match) if i < words.size - prefix_length
     end
   end
 
@@ -46,8 +46,8 @@ class Remarkovable
 
   private
 
-  def add_triad(pair, match)
-    @markov_model[pair] = {} unless @markov_model[pair]
-    @markov_model[pair] += [match]
+  def add_triad(key: key, match: match)
+    @markov_model[key] = {} unless @markov_model[key]
+    @markov_model[key] += [match]
   end
 end

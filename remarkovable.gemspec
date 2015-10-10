@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = '0.1'
   spec.authors       = ['Jake Worth']
   spec.email         = ['jake@jakeworth.com']
-  spec.summary       = %q{Markov chains for all.}
-  spec.description   = %q{A gem that produces Markov chain output from any text.}
+  spec.summary       = 'Markov chains for all.'
+  spec.description   = 'A gem that produces Markov chain output from any text.'
   spec.homepage      = 'http://github.com/jwworth/remarkovable'
   spec.license       = 'MIT'
 

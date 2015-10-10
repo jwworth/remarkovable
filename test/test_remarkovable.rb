@@ -82,7 +82,7 @@ class RemarkovableTest < Minitest::Test
   end
 
   def test_custom_prefix_length_1
-    string = "we are."
+    string = 'we are.'
     mc = Remarkovable.new(string: string, prefix_length: 1)
     expected_output = {
       'we' => ['are'],
@@ -93,7 +93,7 @@ class RemarkovableTest < Minitest::Test
   end
 
   def test_custom_prefix_length_3
-    string = "we are walking."
+    string = 'we are walking.'
     mc = Remarkovable.new(string: string, prefix_length: 3)
     expected_output = {
       'we are walking' => ['.']
@@ -103,7 +103,7 @@ class RemarkovableTest < Minitest::Test
   end
 
   def test_custom_prefix_length_4
-    string = "we are walking talking."
+    string = 'we are walking talking.'
     mc = Remarkovable.new(string: string, prefix_length: 4)
     expected_output = {
       'we are walking talking' => ['.']
@@ -113,7 +113,7 @@ class RemarkovableTest < Minitest::Test
   end
 
   def test_custom_prefix_length_5
-    string = "we are walking talking singing."
+    string = 'we are walking talking singing.'
     mc = Remarkovable.new(string: string, prefix_length: 5)
     expected_output = {
       'we are walking talking singing' => ['.']
