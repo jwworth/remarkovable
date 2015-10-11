@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['jake@jakeworth.com']
   spec.summary       = 'Markov chains for all.'
   spec.description   = 'A gem that produces Markov chain output from any text.'
-  spec.homepage      = 'http://github.com/jwworth/remarkovable'
+  spec.homepage      = 'https://rubygems.org/gems/remarkovable'
   spec.license       = 'MIT'
 
   spec.files         = ['lib/remarkovable.rb']
