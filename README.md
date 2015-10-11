@@ -7,14 +7,14 @@ Stuff like this:
 >""Wholesome exercise and pure air of the nature of the Roman Empire should be captive so as to who may be as long as you gazed, and wondered what monstrous cannibal and savage could ever have gone from bad to worse."  *The Prince* + *Moby Dick*
 
 
-Mix up the source material for more interesting output!
+Mix up the source material for better output!
 
 ## Setup
 
 Add this to your Gemfile:
 
 ```
-gem 'remarkovable', git: 'https://github.com/jwworth/remarkovable'
+gem 'remarkovable'
 ```
 
 ## Features
