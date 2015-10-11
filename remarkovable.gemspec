@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'remarkovable'
-  spec.version       = '0.1'
+  spec.version       = '0.2'
   spec.authors       = ['Jake Worth']
   spec.email         = ['jake@jakeworth.com']
   spec.summary       = 'Markov chains for all.'
