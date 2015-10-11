@@ -13,6 +13,6 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.files         = ['lib/remarkovable.rb']
-  spec.test_files    = ['tests/test_remarkovable.rb']
+  spec.test_files    = ['test/test_remarkovable.rb']
   spec.require_paths = ['lib']
 end
