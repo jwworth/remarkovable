@@ -6,7 +6,6 @@ class Remarkovable
     @markov_model = Hash.new { |hash, key| hash[key] = [] }
 
     words = string.split(/([.!?])|\s+/)
-
     words.each_with_index do |word, i|
       key = [word]
 
@@ -28,7 +27,7 @@ class Remarkovable
     else
       @markov_model.keys.sample
     end
-    output = [] << key.capitalize.split(' ')
+    output = Array(key.capitalize.split(' '))
 
     until (output & %w(. ! ?)).any?
       match = @markov_model[key].sample
