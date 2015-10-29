@@ -22,11 +22,7 @@ class Remarkovable
 
   def speak(custom_key: nil)
     return if @markov_model.nil?
-    key = if !custom_key.nil? && @markov_model[custom_key].any?
-      custom_key
-    else
-      @markov_model.keys.sample
-    end
+    key = set_key(custom_key)
     output = Array(key.capitalize.split(' '))
 
     until (output & %w(. ! ?)).any?
@@ -44,6 +40,14 @@ class Remarkovable
   end
 
   private
+
+  def set_key(custom_key)
+    if !custom_key.nil? && @markov_model[custom_key].any?
+      custom_key
+    else
+      @markov_model.keys.sample
+    end
+  end
 
   def add_triad(key: key, match: match)
     @markov_model[key] = {} unless @markov_model[key]
