@@ -13,9 +13,7 @@ class RemarkovableTest < Minitest::Test
   end
 
   def test_add_pair_nil
-    string = nil
-    mc = Remarkovable.new(string: string)
-    expected_output = nil
+    mc = Remarkovable.new(string: nil)
 
     assert_equal nil, mc.speak
   end
