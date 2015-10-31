@@ -9,7 +9,7 @@ class Remarkovable
 
   def speak(custom_key: nil)
     return if @markov_model.nil?
-    key = set_key(custom_key)
+    key = assign_key(custom_key)
     output = Array(key.capitalize.split(' '))
 
     until (output & %w(. ! ?)).any?
@@ -44,7 +44,7 @@ class Remarkovable
     end
   end
 
-  def set_key(custom_key)
+  def assign_key(custom_key)
     if !custom_key.nil? && @markov_model[custom_key].any?
       custom_key
     else
