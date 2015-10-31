@@ -3,7 +3,6 @@ class Remarkovable
 
   def initialize(string: string, prefix_length: 2)
     return if string.nil?
-    @markov_model = Hash.new { |hash, key| hash[key] = [] }
     build_markov_model(string, prefix_length)
   end
 
@@ -29,6 +28,7 @@ class Remarkovable
   private
 
   def build_markov_model(string, prefix_length)
+    @markov_model = Hash.new { |hash, key| hash[key] = [] }
     words = string.split(/([.!?])|\s+/)
     words.each_with_index do |word, i|
       key = [word]
