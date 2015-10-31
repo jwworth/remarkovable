@@ -45,7 +45,7 @@ class Remarkovable
   end
 
   def assign_key(custom_key)
-    if !custom_key.nil? && @markov_model[custom_key].any?
+    if !custom_key.nil? && @markov_model.include?(custom_key)
       custom_key
     else
       @markov_model.keys.sample
