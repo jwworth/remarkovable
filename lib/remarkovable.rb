@@ -4,20 +4,7 @@ class Remarkovable
   def initialize(string: string, prefix_length: 2)
     return if string.nil?
     @markov_model = Hash.new { |hash, key| hash[key] = [] }
-
-    words = string.split(/([.!?])|\s+/)
-    words.each_with_index do |word, i|
-      key = [word]
-
-      (prefix_length - 1).times do |n|
-        next_word = i + n + 1
-        key << words[next_word]
-      end
-
-      key = key.join(' ')
-      match = words[i + prefix_length]
-      add_triad(key: key, match: match) if i < words.size - prefix_length
-    end
+    build_markov_model(string, prefix_length)
   end
 
   def speak(custom_key: nil)
@@ -40,6 +27,22 @@ class Remarkovable
   end
 
   private
+
+  def build_markov_model(string, prefix_length)
+    words = string.split(/([.!?])|\s+/)
+    words.each_with_index do |word, i|
+      key = [word]
+
+      (prefix_length - 1).times do |n|
+        next_word = i + n + 1
+        key << words[next_word]
+      end
+
+      key = key.join(' ')
+      match = words[i + prefix_length]
+      add_triad(key: key, match: match) if i < words.size - prefix_length
+    end
+  end
 
   def set_key(custom_key)
     if !custom_key.nil? && @markov_model[custom_key].any?
