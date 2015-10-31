@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require './lib/remarkovable.rb'
 
-class RemarkovableTest < Minitest::Test
+class TestMarkovModel < Minitest::Test
   def test_add_pair_simple_case
     string = 'we are walking'
     mc = Remarkovable.new(string: string)
