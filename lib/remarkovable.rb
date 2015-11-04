@@ -1,7 +1,7 @@
 class Remarkovable
   attr_accessor :markov_model
 
-  def initialize(string: string, prefix_length: 2)
+  def initialize(string:, prefix_length: 2)
     return if string.nil?
     build_markov_model(string, prefix_length)
   end
@@ -52,7 +52,7 @@ class Remarkovable
     end
   end
 
-  def add_triad(key: key, match: match)
+  def add_triad(key:, match:)
     @markov_model[key] = {} unless @markov_model[key]
     @markov_model[key] += [match]
   end
