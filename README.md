@@ -1,5 +1,7 @@
 # remarkovable
 
+[![Build Status](https://travis-ci.org/jwworth/remarkovable.svg)](https://travis-ci.org/jwworth/remarkovable)
+
 A gem that produces Markov chain output from any text.
 
 Stuff like this:
