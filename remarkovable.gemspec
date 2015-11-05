@@ -12,7 +12,10 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/jwworth/remarkovable'
   spec.license       = 'MIT'
 
-  spec.files         = ['lib/remarkovable.rb']
-  spec.test_files    = %w(test/test_speak.rb test/test_markov_model.rb)
+  spec.files         = `git ls-files`.split($/)
+  spec.test_files    = spec.files.grep(%r{^(test)})
   spec.require_paths = ['lib']
+
+  spec.add_development_dependency "bundler"
+  spec.add_development_dependency "minitest"
 end

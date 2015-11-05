@@ -2,7 +2,6 @@ class Remarkovable
   attr_accessor :markov_model
 
   def initialize(string:, prefix_length: 2)
-
     if string.nil?
       raise ArgumentError, message: 'String cannot be nil'
     elsif !string.rindex(/\.|!|\?/)
