@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    remarkovable (0.3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.8.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest
+  remarkovable!
+
+BUNDLED WITH
+   1.10.6
