@@ -8,8 +8,10 @@ class Remarkovable
 
   def speak(custom_key: nil)
     return if @markov_model.nil?
+
     key = assign_key(custom_key)
-    output = Array(key.capitalize.split(' '))
+    first_pair = key.split
+    output = [first_pair.first.capitalize, first_pair.last]
 
     until (output & %w(. ! ?)).any?
       match = @markov_model[key].sample

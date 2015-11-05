@@ -36,4 +36,11 @@ class TestSpeak < Minitest::Test
 
     assert_nil(mc.speak(custom_key: 'foo bar') =~ /Foo bar/i)
   end
+
+  def test_preserve_capitalization
+    string = 'Are Walken.'
+    mc = Remarkovable.new(string: string)
+
+    assert_match(/\A.*Walken.*\.\z/, mc.speak)
+  end
 end
