@@ -2,7 +2,13 @@ class Remarkovable
   attr_accessor :markov_model
 
   def initialize(string:, prefix_length: 2)
-    return if string.nil?
+
+    if string.nil?
+      raise ArgumentError, message: 'String cannot be nil'
+    elsif !string.rindex(/\.|!|\?/)
+      raise ArgumentError, message: 'String must have a terminator'
+    end
+
     build_markov_model(string, prefix_length)
   end
 

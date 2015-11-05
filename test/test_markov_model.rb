@@ -3,19 +3,19 @@ require './lib/remarkovable.rb'
 
 class TestMarkovModel < Minitest::Test
   def test_add_pair_simple_case
-    string = 'we are walking'
+    string = 'we walk.'
     mc = Remarkovable.new(string: string)
     expected_output = {
-      'we are' => ['walking']
+      'we walk' => ['.']
     }
 
     assert_equal expected_output, mc.markov_model
   end
 
-  def test_add_pair_nil
-    mc = Remarkovable.new(string: nil)
-
-    assert_equal nil, mc.speak
+  def test_string_is_nil
+    assert_raises ArgumentError do
+      Remarkovable.new(string: nil)
+    end
   end
 
   def test_add_pair_three_words_and_punctuation
@@ -118,5 +118,13 @@ class TestMarkovModel < Minitest::Test
     }
 
     assert_equal expected_output, mc.markov_model
+  end
+
+  def test_no_terminator
+    string = 'we are walking'
+
+    assert_raises ArgumentError do
+      Remarkovable.new(string: string)
+    end
   end
 end
